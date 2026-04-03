@@ -1,0 +1,26 @@
+{
+  "name": "lan-p",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "check": "vp check",
+    "test": "vp test",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "latest",
+    "@cloudflare/workers-types": "latest",
+    "@types/qrcode": "^1.5.5",
+    "hono": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plus": "latest",
+    "wrangler": "latest"
+  }
+}
