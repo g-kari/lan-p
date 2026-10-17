@@ -1,0 +1,5 @@
+# Native binaries used by the existing Vite / Cloudflare toolchain.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
