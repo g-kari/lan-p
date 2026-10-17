@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.31.0",
-    "@cloudflare/workers-types": "4.20260403.1",
+    "@cloudflare/workers-types": "4.20260702.1",
     "@types/qrcode": "^1.5.5",
     "hono": "4.12.12",
     "typescript": "6.0.2",
