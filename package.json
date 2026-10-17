@@ -21,7 +21,7 @@
     "@types/qrcode": "^1.5.5",
     "hono": "4.12.12",
     "typescript": "6.0.2",
-    "vite": "8.0.5",
+    "vite": "8.3.4",
     "vite-plus": "0.1.15",
     "wrangler": "4.80.0"
   },
