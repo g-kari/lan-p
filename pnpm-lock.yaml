@@ -22,8 +22,8 @@ importers:
         specifier: ^1.5.5
         version: 1.5.6
       hono:
-        specifier: 4.12.12
-        version: 4.12.12
+        specifier: 4.13.14
+        version: 4.13.14
       typescript:
         specifier: 6.0.2
         version: 6.0.2
@@ -1070,8 +1070,8 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  hono@4.12.12:
-    resolution: {integrity: sha512-p1JfQMKaceuCbpJKAPKVqyqviZdS0eUxH9v82oWo1kb9xjQ5wA6iP3FNVAPDFlz5/p7d45lO+BpSk1tuSZMF4Q==}
+  hono@4.13.14:
+    resolution: {integrity: sha512-yhRLQ21U6qa9Hsu2N7Qcbh8tE+WKEcoErjIo56LeSGiGXGp9sA7UpE86Ui9uexb61KakiGwuHMn2QdV7w6i6kQ==}
     engines: {node: '>=16.9.0'}
 
   is-fullwidth-code-point@3.0.0:
@@ -2106,7 +2106,7 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
-  hono@4.12.12: {}
+  hono@4.13.14: {}
 
   is-fullwidth-code-point@3.0.0: {}
 
