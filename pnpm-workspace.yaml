@@ -1,4 +1,3 @@
-# Native binaries used by the existing Vite / Cloudflare toolchain.
 onlyBuiltDependencies:
   - esbuild
   - sharp
@@ -6,5 +5,5 @@ onlyBuiltDependencies:
 
 # Keep Vite+ consumers on the matching core and bundled Vitest releases.
 overrides:
-  vite@*: npm:@voidzero-dev/vite-plus-core@1.3.0
+  vite@*: npm:@voidzero-dev/vite-plus-core@1.4.0
   vitest@*: 5.0.5
