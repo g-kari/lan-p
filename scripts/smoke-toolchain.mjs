@@ -23,7 +23,7 @@ const resolved = [];
 for (const [caller, require] of Object.entries(callers)) {
   const entry = realpathSync(require.resolve("vite"));
   const vite = await import(pathToFileURL(entry));
-  assert.equal(vite.version, "8.3.3", `${caller}: embedded Vite version`);
+  assert.equal(vite.version, "8.3.4", `${caller}: embedded Vite version`);
   for (const api of ["DevEnvironment", "BuildEnvironment", "createRunnableDevEnvironment"]) {
     assert.equal(typeof vite[api], "function", `${caller}: ${api}`);
   }
