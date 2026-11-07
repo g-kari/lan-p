@@ -3,3 +3,8 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - workerd
+
+# Keep Vite+ consumers on the matching core and bundled Vitest releases.
+overrides:
+  vite@*: npm:@voidzero-dev/vite-plus-core@1.1.0
+  vitest@*: 5.0.3
