@@ -1,26 +1,30 @@
 {
   "name": "lan-p",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vp dev",
     "build": "vp build",
     "check": "vp check",
     "test": "vp test",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc -p tsconfig.app.json && tsc -p tsconfig.worker.json",
+    "lint": "vp lint",
+    "smoke:toolchain": "node scripts/smoke-toolchain.mjs"
   },
   "dependencies": {
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "latest",
-    "@cloudflare/workers-types": "latest",
+    "@cloudflare/vite-plugin": "1.69.1",
+    "@cloudflare/workers-types": "5.20261112.1",
     "@types/qrcode": "^1.5.5",
-    "hono": "latest",
-    "typescript": "latest",
-    "vite": "latest",
-    "vite-plus": "latest",
-    "wrangler": "latest"
-  }
+    "hono": "4.13.18",
+    "typescript": "7.0.2",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+    "vite-plus": "1.6.0",
+    "wrangler": "4.161.0"
+  },
+  "packageManager": "pnpm@12.17.0"
 }

@@ -22,11 +22,11 @@
 
 ### ビルド
 
-- ビルドには必ず `npm run build`（= `vp build`）を使うこと
+- ビルドには必ず `pnpm run build`（= `vp build`）を使うこと
 - ビルド成功時は `dist/client/`（SPA）と `dist/lan_p/`（Worker）の両方が生成される
 
 ### デプロイ
 
 - `wrangler.jsonc` の `REPLACE_WITH_KV_ID` は初回デプロイ前に実際のIDに置き換えること
 - デプロイは `main` ブランチへのpushで自動実行（Cloudflare Git連携）
-- 手動デプロイが必要な場合: `npm run deploy`
+- 手動デプロイが必要な場合: `pnpm run deploy`

@@ -10,21 +10,25 @@ description: lan-p の Worker API（worker/index.ts）を専門にレビュー�
 ## レビュー観点
 
 ### セキュリティ
+
 - ファイルサイズ制限（10MB）が適切に実装されているか
 - CORS 設定が過剰に緩くないか（本番では `/api/*` のみ）
 - KVキーのプレフィックス（`clip:`）が適切にサニタイズされているか
 
 ### データ整合性
+
 - `claim` エンドポイントがKVとR2を**必ず両方**削除しているか
 - KVのTTL（3600秒）が設定されているか
 - R2キー（`media/<uuid>/<filename>`）とKVのメタデータが整合しているか
 
 ### Cloudflare Workers 固有
+
 - `crypto.randomUUID()` の使用（Workers ランタイムで利用可能）
 - `R2Bucket.put()` に適切な `httpMetadata.contentType` が設定されているか
 - KVの `list()` が `prefix` と `limit` を正しく使っているか
 
 ### エラーハンドリング
+
 - 存在しないクリップへのアクセスで適切な404を返すか
 - ファイルが大きすぎる場合に413を返すか
 

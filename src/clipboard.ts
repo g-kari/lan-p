@@ -21,7 +21,7 @@ export async function createTextClip(text: string): Promise<ClipEntry> {
     body: JSON.stringify({ text }),
   });
   if (!res.ok) throw new Error("Failed to create clip");
-  const data = await res.json() as { clip: ClipEntry };
+  const data = (await res.json()) as { clip: ClipEntry };
   return data.clip;
 }
 
@@ -34,10 +34,10 @@ export async function uploadFileClip(file: File): Promise<ClipEntry> {
     body: formData,
   });
   if (!res.ok) {
-    const err = await res.json() as { error: string };
+    const err = (await res.json()) as { error: string };
     throw new Error(err.error || "Upload failed");
   }
-  const data = await res.json() as { clip: ClipEntry };
+  const data = (await res.json()) as { clip: ClipEntry };
   return data.clip;
 }
 

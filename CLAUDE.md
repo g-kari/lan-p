@@ -12,14 +12,14 @@
 
 ## 技術スタック
 
-| 役割 | 技術 |
-|------|------|
-| APIフレームワーク | Hono |
-| フロントエンド | Vanilla TypeScript SPA |
-| ビルドツール | vite-plus (`vp`) + `@cloudflare/vite-plugin` |
-| メタデータDB | Cloudflare KV（TTL: 1時間） |
-| ファイルストレージ | Cloudflare R2 |
-| 認証 | Cloudflare Access（ダッシュボード設定のみ） |
+| 役割               | 技術                                         |
+| ------------------ | -------------------------------------------- |
+| APIフレームワーク  | Hono                                         |
+| フロントエンド     | Vanilla TypeScript SPA                       |
+| ビルドツール       | vite-plus (`vp`) + `@cloudflare/vite-plugin` |
+| メタデータDB       | Cloudflare KV（TTL: 1時間）                  |
+| ファイルストレージ | Cloudflare R2                                |
+| 認証               | Cloudflare Access（ダッシュボード設定のみ）  |
 
 ## プロジェクト構造
 
@@ -45,13 +45,13 @@ lan-p/
 
 ```bash
 # 開発サーバー起動
-npm run dev        # vp dev（Vite + Cloudflare Workers ローカル実行）
+pnpm run dev        # vp dev（Vite + Cloudflare Workers ローカル実行）
 
 # ビルド
-npm run build      # vp build → dist/client/ + dist/lan_p/
+pnpm run build      # vp build → dist/client/ + dist/lan_p/
 
 # デプロイ
-npm run deploy     # wrangler deploy
+pnpm run deploy     # wrangler deploy
 ```
 
 ## データ設計
@@ -75,29 +75,29 @@ media/<uuid>/<filename>  →  バイナリデータ
 
 ## API エンドポイント
 
-| Method | Path | 説明 |
-|--------|------|------|
-| GET | `/api/clips` | クリップ一覧（最大50件、新しい順） |
-| POST | `/api/clips` | テキストクリップ作成 |
-| POST | `/api/clips/upload` | ファイル/画像アップロード（最大10MB） |
-| GET | `/api/media/:id` | R2からファイル取得 |
-| POST | `/api/clips/:id/claim` | コピー完了→即時削除 |
-| DELETE | `/api/clips/:id` | 手動削除 |
+| Method | Path                   | 説明                                  |
+| ------ | ---------------------- | ------------------------------------- |
+| GET    | `/api/clips`           | クリップ一覧（最大50件、新しい順）    |
+| POST   | `/api/clips`           | テキストクリップ作成                  |
+| POST   | `/api/clips/upload`    | ファイル/画像アップロード（最大10MB） |
+| GET    | `/api/media/:id`       | R2からファイル取得                    |
+| POST   | `/api/clips/:id/claim` | コピー完了→即時削除                   |
+| DELETE | `/api/clips/:id`       | 手動削除                              |
 
 ## 初回デプロイ手順
 
 ```bash
 # 1. KV名前空間作成
-npx wrangler kv namespace create CLIPS_KV
-npx wrangler kv namespace create CLIPS_KV --preview
+pnpm exec wrangler kv namespace create CLIPS_KV
+pnpm exec wrangler kv namespace create CLIPS_KV --preview
 
 # 2. R2バケット作成
-npx wrangler r2 bucket create lan-p-media
+pnpm exec wrangler r2 bucket create lan-p-media
 
 # 3. wrangler.jsonc の REPLACE_WITH_KV_ID を実際のIDに置き換える
 
 # 4. ビルド & デプロイ
-npm run build && npm run deploy
+pnpm run build && pnpm run deploy
 ```
 
 ## Cloudflare Access 設定（デプロイ後）

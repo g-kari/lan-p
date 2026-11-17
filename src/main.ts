@@ -32,7 +32,9 @@ function showToast(msg: string, isError = false): void {
   toast.textContent = msg;
   toast.className = `toast ${isError ? "toast-error" : "toast-success"}`;
   toast.hidden = false;
-  setTimeout(() => { toast.hidden = true; }, 2500);
+  setTimeout(() => {
+    toast.hidden = true;
+  }, 2500);
 }
 
 function renderClips(clips: ClipEntry[]): void {
@@ -295,19 +297,24 @@ qrBtn.addEventListener("click", () => {
   void showQrModal(window.location.href);
 });
 qrClose.addEventListener("click", hideQrModal);
-document.getElementById("qr-modal")
+document
+  .getElementById("qr-modal")
   ?.querySelector(".modal-backdrop")
   ?.addEventListener("click", hideQrModal);
 
 // 画像モーダル
-imgClose.addEventListener("click", () => { imgModal.hidden = true; });
+imgClose.addEventListener("click", () => {
+  imgModal.hidden = true;
+});
 imgModal.querySelector(".modal-backdrop")?.addEventListener("click", () => {
   imgModal.hidden = true;
 });
 
 // ポーリング開始
 loadClips();
-polling = setInterval(() => { void loadClips(); }, 3000);
+polling = setInterval(() => {
+  void loadClips();
+}, 3000);
 
 // ページ離脱時にポーリング停止
 window.addEventListener("beforeunload", () => {

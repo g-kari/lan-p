@@ -16,7 +16,9 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -91,7 +93,9 @@ header {
   border-radius: var(--radius-sm);
   color: var(--text);
   cursor: pointer;
-  transition: background var(--transition), border-color var(--transition);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
 }
 
 .icon-btn:hover {
@@ -164,7 +168,9 @@ textarea#clip-input:focus {
   font-size: 0.9rem;
   cursor: pointer;
   white-space: nowrap;
-  transition: background var(--transition), border-color var(--transition);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
   user-select: none;
 }
 
@@ -193,7 +199,9 @@ textarea#clip-input:focus {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition), opacity var(--transition);
+  transition:
+    background var(--transition),
+    opacity var(--transition);
   white-space: nowrap;
 }
 
@@ -354,7 +362,10 @@ textarea#clip-input:focus {
   color: var(--text-muted);
   cursor: pointer;
   margin-left: auto;
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition);
 }
 
 .btn-delete:hover {
@@ -415,8 +426,14 @@ textarea#clip-input:focus {
 
 /* フェードアウトアニメーション */
 @keyframes fade-out {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.95); }
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
 
 .fade-out {
@@ -513,7 +530,7 @@ textarea#clip-input:focus {
   right: 8px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.7);
-  border-color: rgba(255,255,255,0.2);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
@@ -556,8 +573,14 @@ textarea#clip-input:focus {
 }
 
 @keyframes slide-up {
-  from { transform: translateX(-50%) translateY(12px); opacity: 0; }
-  to   { transform: translateX(-50%) translateY(0); opacity: 1; }
+  from {
+    transform: translateX(-50%) translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ===================== PCレスポンシブ ===================== */

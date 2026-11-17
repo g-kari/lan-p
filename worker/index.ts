@@ -100,7 +100,7 @@ app.post("/api/clips/upload", async (c) => {
 // メディアファイル取得
 app.get("/api/media/:id", async (c) => {
   const id = c.req.param("id");
-  const meta = await c.env.CLIPS_KV.get(`clip:${id}`, "json") as ClipEntry | null;
+  const meta = (await c.env.CLIPS_KV.get(`clip:${id}`, "json")) as ClipEntry | null;
 
   if (!meta || !meta.fileName) {
     return c.json({ error: "Not found" }, 404);
@@ -136,7 +136,7 @@ app.delete("/api/clips/:id", async (c) => {
 });
 
 async function deleteClip(env: Bindings, id: string): Promise<void> {
-  const meta = await env.CLIPS_KV.get(`clip:${id}`, "json") as ClipEntry | null;
+  const meta = (await env.CLIPS_KV.get(`clip:${id}`, "json")) as ClipEntry | null;
 
   // KV から削除
   await env.CLIPS_KV.delete(`clip:${id}`);

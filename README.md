@@ -24,10 +24,41 @@
 
 ## 開発
 
+既存ツールチェーンの Node.js 要件（`^20.19.0 || >=22.12.0`）を使用します。
+pnpm は `package.json` の `packageManager` に指定した **10.32.1** に固定しています。
+初回は [pnpm の公式手順](https://pnpm.io/10.x/installation)で同じ版を導入してください。
+
 ```bash
-npm install
-npm run dev
+npm install --global pnpm@10.32.1
+pnpm --version
 ```
+
+依存のインストールと開発サーバーの起動:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm run dev
+```
+
+検証とビルド:
+
+```bash
+pnpm run typecheck
+pnpm run check
+pnpm test --run
+pnpm run build
+```
+
+`check` は整形と lint、`typecheck` はフロントエンドと Worker の型を検証します。
+GitHub Actions でも Node.js 22.16.0（既存 Cloudflare ビルドで使用した版）で
+frozen install とこれらの検証を実行します。
+単体テストはメモリ内の KV / R2 を使い、Cloudflare の実リソースへ接続しません。
+ビルドでは従来どおり `vp build` を使い、`dist/client/` と `dist/lan_p/` を生成します。
+
+依存を変更する場合は `pnpm add` / `pnpm update` を使い、`package.json` と
+`pnpm-lock.yaml` を一緒にコミットします。CI や再現用インストールでは
+`--frozen-lockfile` を使用します。ネイティブ依存の install script は
+`pnpm-workspace.yaml` に列挙した既存ツールチェーンの3件だけを許可しています。
 
 ## デプロイ
 
