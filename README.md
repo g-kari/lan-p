@@ -24,12 +24,12 @@
 
 ## 開発
 
-既存ツールチェーンの Node.js 要件（`^20.19.0 || >=22.12.0`）を使用します。
-pnpm は `package.json` の `packageManager` に指定した **10.32.1** に固定しています。
-初回は [pnpm の公式手順](https://pnpm.io/10.x/installation)で同じ版を導入してください。
+Vite+ CLI 1.6.0 の Node.js 要件（`^22.18.0 || ^24.11.0 || >=26.0.0`）を使用します。
+pnpm は `package.json` の `packageManager` に指定した **12.17.0** に固定しています。
+初回は [pnpm の公式手順](https://pnpm.io/installation)で同じ版を導入してください。
 
 ```bash
-npm install --global pnpm@10.32.1
+npm install --global pnpm@12.17.0
 pnpm --version
 ```
 
@@ -47,13 +47,16 @@ pnpm run typecheck
 pnpm run check
 pnpm test --run
 pnpm run build
+pnpm run smoke:toolchain
 ```
 
 `check` は整形と lint、`typecheck` はフロントエンドと Worker の型を検証します。
-GitHub Actions でも Node.js 22.16.0（既存 Cloudflare ビルドで使用した版）で
+GitHub Actions でも Node.js 26.13.0 で
 frozen install とこれらの検証を実行します。
 単体テストはメモリ内の KV / R2 を使い、Cloudflare の実リソースへ接続しません。
 ビルドでは従来どおり `vp build` を使い、`dist/client/` と `dist/lan_p/` を生成します。
+`smoke:toolchain` はビルド後に使い捨てのローカル KV / R2 とループバック通信だけで
+共有 Vite core、開発サーバー、ビルド済み Worker、CRUD・TTL・再起動を検証します。
 
 依存を変更する場合は `pnpm add` / `pnpm update` を使い、`package.json` と
 `pnpm-lock.yaml` を一緒にコミットします。CI や再現用インストールでは
